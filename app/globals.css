@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+  --color-gray-100: #808080;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+span.icon-open-link {
+  filter: contrast(1%);
+}
+
+span.icon-open-link::after {
+  content: url(/open-link.svg);
+}
+
+span.icon-open-link:hover {
+  filter: contrast(99%);
+}
+
+input#search::placeholder {
+  color: var(--color-gray-100);
+}
+
+div.list-row:not(:last-child) {
+  border-bottom: 1px solid var(--color-gray-100);
+}
+
+section#section-results:hover div.list-row:first-child {
+  border-top: 1px solid var(--color-gray-100);
+}
+
+span.icon-search {
+  filter: brightness(0) saturate(100%) invert(99%) sepia(1%) saturate(951%) hue-rotate(80deg)
+    brightness(115%) contrast(100%);
+  transform: translateX(0.3em) translateY(0.9em);
+}
+
+span.icon-search::after {
+  content: url(/search.svg);
+}
+
+div#find-results p.find > span.found,
+div#find-results h3.find > span.found {
+  background-color: #596719;
+}
